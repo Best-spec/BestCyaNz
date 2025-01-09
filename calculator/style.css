@@ -1,0 +1,75 @@
+:root {
+    --primary-bg: #212327;
+    --secondary-bg: #27292E;
+    --button-bg: #323439;
+    --text-color: aliceblue;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.border-parent {
+    background-color: var(--primary-bg);
+    width: 390px;
+    height: 700px;
+}
+
+.output-field {
+    padding: 10px;
+    text-align: end;
+    height: 180px;
+}
+
+.output-field h1,
+.output-field h3 {
+    color: var(--text-color);
+    padding-right: 10%;
+}
+
+.input-field {
+    height: 65%;
+    background-color: var(--secondary-bg);
+    border-radius: 10%;
+}
+
+.table-number,
+.table-2,
+.table-3 {
+    padding: 10%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.table-2,
+.table-3 {
+    padding: 0;
+}
+
+.table-2-main {
+    display: flex;
+}
+
+.table-2-main .table-3 .img-border {
+    height: auto;
+    border-radius: 50px;
+}
+
+.img-border {
+    height: 26px;
+    width: 26px;
+    margin: 5px;
+    padding: 20px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: var(--button-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

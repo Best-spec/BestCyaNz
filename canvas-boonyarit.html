@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Canvas</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: left;
+      }
+
+      .canvas-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 คอลัมน์ */
+        gap: 20px; /* ระยะห่างระหว่าง canvas */
+        justify-content: center; /* จัดให้อยู่ตรงกลาง */
+        margin-top: 20px;
+      }
+
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My Canvas</h1>
+    <p>นาย บุญฤทธิ์ ถนนนา</p>
+    <p>รหัส 016530641038-3</p>
+
+    <div class="canvas-container">
+      <canvas id="canvas1" width="200" height="200"></canvas>
+      <canvas id="canvas2" width="200" height="200"></canvas>
+      <canvas id="canvas3" width="200" height="200"></canvas>
+      <canvas id="canvas4" width="200" height="200"></canvas>
+      <canvas id="canvas5" width="200" height="200"></canvas>
+      <canvas id="canvas6" width="200" height="200"></canvas>
+    </div>
+
+    <script>
+      // วาดใน canvas1: เส้นแนวตั้ง
+      var c1 = document.getElementById("canvas1").getContext("2d");
+      c1.beginPath();
+      c1.lineWidth = 2;
+      for (let i = 15; i <= 400; i += 19) {
+        c1.moveTo(i, 0);
+        c1.lineTo(i - 170, 200);
+      }
+      c1.stroke();
+
+      var c2 = document.getElementById("canvas2").getContext("2d");
+      c2.beginPath();
+      c2.lineWidth = 2;
+      for (let i = -170; i <= 400; i += 19) {
+        c2.moveTo(i, 0);
+        c2.lineTo(i + 170, 200);
+      }
+      c2.stroke();
+
+      var c3 = document.getElementById("canvas3").getContext("2d");
+      c3.beginPath();
+      c3.lineWidth = 2;
+
+      // วาดเส้นเอียงไปทางขวา
+      for (let i = -170; i <= 400; i += 19) {
+        c3.moveTo(i, 0); // จุดเริ่มต้นของเส้น
+        c3.lineTo(i + 170, 200); // จุดปลายของเส้น
+      }
+
+      // วาดเส้นเอียงไปทางซ้าย
+      for (let i = 570; i >= 0; i -= 19) {
+        c3.moveTo(i, 0); // จุดเริ่มต้นของเส้น
+        c3.lineTo(i - 170, 200); // จุดปลายของเส้น
+      }
+      c3.stroke();
+
+      var c4 = document.getElementById("canvas4").getContext("2d");
+      c4.beginPath();
+      c4.lineWidth = 2;
+
+      // พิกัดกลาง canvas
+      const centerX = 100;
+      const centerY = 100;
+
+      // วาดวงกลมเพิ่มขึ้นเรื่อยๆ
+      for (let radius = 20; radius <= 200; radius += 20) {
+        c4.beginPath();
+        c4.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+        c4.stroke();
+      }
+
+      var c5 = document.getElementById("canvas5").getContext("2d");
+
+      // ขนาด canvas
+      const canvasWidth = 200;
+      const canvasHeight = 200;
+
+      // รัศมีเริ่มต้นของวงกลม
+      const radius = 10;
+
+      // พิกัดของศูนย์กลางวงกลมที่อยู่นอกกรอบ
+      const corners = [
+        { x: -radius, y: -radius }, // มุมบนซ้าย
+        { x: canvasWidth + radius, y: -radius }, // มุมบนขวา
+        { x: -radius, y: canvasHeight + radius }, // มุมล่างซ้าย
+        { x: canvasWidth + radius, y: canvasHeight + radius }, // มุมล่างขวา
+      ];
+
+      // วาดวงกลมซ้อนทับในแต่ละมุม
+      for (let corner of corners) {
+        for (let r = radius; r <= radius * 23; r += 18) {
+          // ซ้อนทับวงกลมโดยเพิ่มรัศมีทีละ 10
+          c5.beginPath();
+          c5.arc(corner.x, corner.y, r, 0, 2 * Math.PI);
+          c5.stroke();
+        }
+      }
+
+      var c6 = document.getElementById("canvas6").getContext("2d");
+      c6.beginPath();
+      c6.lineWidth = 2;
+
+      // วาดเส้นตรงจากบนลงล่าง ใกล้ฝั่งซ้าย
+      c6.moveTo(15, 15);
+      c6.lineTo(15, 200);
+
+      c6.moveTo(15, 185);
+      c6.lineTo(200, 185);
+
+      c6.moveTo(30, 30);
+      c6.lineTo(30, 185);
+
+      c6.moveTo(30, 170);
+      c6.lineTo(170, 170);
+
+      c6.moveTo(45, 45);
+      c6.lineTo(45, 170);
+
+      c6.moveTo(45, 155);
+      c6.lineTo(155, 155);
+
+      c6.moveTo(60, 60);
+      c6.lineTo(60, 155);
+
+      c6.moveTo(60, 140);
+      c6.lineTo(140, 140);
+
+      c6.stroke();
+    </script>
+  </body>
+</html>

@@ -25,6 +25,10 @@
     </form>
 
     <?php
+    //เซ็ตค่าตัวแปร ให้เป็นชื่อคอลัมน์ในฐานข้อมูล ที่ต้องการบันทึก
+    $Type_name = 'Type';
+    $User_ID = 'User_ID';
+    $Pass_ID = 'Pass_ID';
 
     // กดบันทึกข้อมูลจากฟอร์ม
     if (empty($_POST["type"]) || empty($_POST["username"]) || empty($_POST["pwd"])) {
@@ -36,7 +40,7 @@
         $Type = $_POST["type"];
         $Username = $_POST["username"];
         $Password = $_POST["pwd"];
-        $sql = "INSERT INTO รหัสต่างๆ (Type, User_ID, Pass_ID) VALUES ('$Type','$Username', '$Password')";
+        $sql = "INSERT INTO รหัสต่างๆ ($Type_name, $User_ID, $Pass_ID) VALUES ('$Type','$Username', '$Password')";
 
         if ($conn->query($sql) === TRUE) {
         ?>

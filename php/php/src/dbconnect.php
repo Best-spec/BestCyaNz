@@ -1,4 +1,5 @@
 <?php
+//เซ้ตค่าตัวแปร ของฐานข้อมูล
 $servername = "db";
 $username = "BestCyaNz";
 $password = "123456a";

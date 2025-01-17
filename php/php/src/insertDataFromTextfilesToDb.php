@@ -1,6 +1,5 @@
 <?php
 // เก็บข้อมูลจากไฟล์ txt ลงในฐานข้อมูล MySQLโดยใช้ PHP และ MySQL ในการเขียน code 
-// Path: php/src/insertData.php
 require('dbconnect.php');
 $filename = "..txt";
 
@@ -39,12 +38,12 @@ foreach ($Type as $index => $type) {
     echo "Type : " . $type . "<br>";
     echo "Username : " . $Username[$index] . "<br>";
     echo "Password : " . $Password[$index] . "<br>";
-    echo "<br>";
+    echo "-----------------------------------------------<br>";
 
     $sql = "INSERT INTO รหัสต่างๆ (Type, User_ID, Pass_ID) VALUES ('$type','$Username[$index]', '$Password[$index]')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
+        echo "New record created successfully<br>";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }

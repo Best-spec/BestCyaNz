@@ -4,7 +4,7 @@ services:
     container_name: php-apache
     build:
       context: ./php
-      dockerfile: C:\Users\User\Desktop\php\Dockerfiles
+      dockerfile: C:\Users\User\Desktop\php\php\Dockerfiles
     depends_on:
       - db
     volumes:

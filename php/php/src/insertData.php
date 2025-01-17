@@ -1,4 +1,5 @@
 <?php
+// บันทึกข้อมูลจากฟอร์ม post
 require('dbconnect.php');
 
 $Type = $_POST["type"];

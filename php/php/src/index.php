@@ -11,7 +11,7 @@
 <body>
     <br>
     <h1 class="text-center">ระบบบันทึกรหัสผ่าน</h1>
-    <form method="post">
+    <form id="insertform">
         <div class="container my-3">
             <label for="inputPassword5" class="form-label">Type</label>
             <input type="text" name="type" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
@@ -24,52 +24,10 @@
         </div>
     </form>
 
-    <?php
-    //เซ็ตค่าตัวแปร ให้เป็นชื่อคอลัมน์ในฐานข้อมูล ที่ต้องการบันทึก
-    $Type_name = 'Type';
-    $User_ID = 'User_ID';
-    $Pass_ID = 'Pass_ID';
+    <div class="container my-3">
+        <p id="ShowInsertData"></p>
+    </div>
 
-    // กดบันทึกข้อมูลจากฟอร์ม
-    if (empty($_POST["type"]) || empty($_POST["username"]) || empty($_POST["pwd"])) {
-    ?>
-        <h1 class="text-center"><?php echo "กรุณากรอกข้อมูล"; ?></h1>
-        <?php
-    } else {
-        require('dbconnect.php');
-        $Type = $_POST["type"];
-        $Username = $_POST["username"];
-        $Password = $_POST["pwd"];
-        $sql = "INSERT INTO รหัสต่างๆ ($Type_name, $User_ID, $Pass_ID) VALUES ('$Type','$Username', '$Password')";
-
-        if ($conn->query($sql) === TRUE) {
-        ?>
-            <br>
-            <h1 class="text-center">บันทึกข้อมูลสําเร็จแล้ว</h1>;
-            <div class="container my-3">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Type</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">Password</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><?php echo $Type; ?></td>
-                            <td><?php echo $Username; ?></td>
-                            <td><?php echo $Password; ?></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-    <?php
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-    }
-    ?>
 
 
     <!-- ค้นหาข้อมูลตาม Type -->
@@ -78,8 +36,8 @@
         <div class=" container my-3">
             <label for="inputPassword5" class="form-label">Type</label>
             <input type="text" name="inputbox" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
-            <button onclick="ShowData('inputbox')">ค้นหาข้อมูล</button>
-            <button onclick="ShowData('AllData')">แสดงข้อมูลทั้งหมด</button>
+            <button onclick="ShowData('inputbox')" class="btn btn-outline-primary">ค้นหาข้อมูล</button>
+            <button onclick="ShowData('AllData')" class="btn btn-outline-info">แสดงข้อมูลทั้งหมด</button>
         </div>
     </form>
     <div class="container my-3">
@@ -88,8 +46,8 @@
         </div>
 
     </div>
-    <script src="script.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="script.js"></script>
 </body>
 
 

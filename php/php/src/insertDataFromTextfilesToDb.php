@@ -4,6 +4,12 @@ require('dbconnect.php');
 $filename = "..txt";
 
 // อ่านไฟล์เป็นอาร์เรย์
+//format 
+// =======================================
+// [Type]
+// [Username]
+// [Password]
+// =======================================
 $lines = file($filename, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
 $Type = [];

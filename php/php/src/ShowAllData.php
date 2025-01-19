@@ -7,32 +7,39 @@ $sql = "SELECT * FROM รหัสต่างๆ";
 $result = $conn->query($sql);
 
 // ตรวจสอบว่ามีข้อมูลหรือไม่
-if ($result->num_rows > 0) {
-    // เริ่มต้นตาราง
-    echo '<table class="table table-bordered">';
-    echo '<thead>';
-    echo '<tr>';
-    echo '<th scope="col">Type</th>';
-    echo '<th scope="col">Username</th>';
-    echo '<th scope="col">Password</th>';
-    echo '</tr>';
-    echo '</thead>';
-    echo '<tbody>';
+if ($result->num_rows > 0) { ?>
+    <!-- // เริ่มต้นตาราง -->
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Type</th>
+                <th scope="col">Username</th>
+                <th scope="col">Password</th>
+                <th scope="col">ลบข้อมูล</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <!-- แสดงผลข้อมูล -->
+            <?php while ($row = $result->fetch_assoc()) { ?>
+                <tr>
+                    <td><?php echo $row['Type']; ?></td>
+                    <td><?php echo $row['User_ID']; ?></td>
+                    <td><?php echo $row['Pass_ID']; ?></td>
+                    <td>
+                        <a onclick="DeleteData('<?php echo $row['ID']; ?>')" class="btn btn-danger">ลบข้อมูล</a>
+                    </td>
+                </tr>
+            <?php
+            }
+            ?>
+            <script src="script.js"></script>
 
-    // แสดงผลข้อมูล
-    while ($row = $result->fetch_assoc()) {
-        echo '<tr>';
-        echo '<td>' . htmlspecialchars($row['Type']) . '</td>';
-        echo '<td>' . htmlspecialchars($row['User_ID']) . '</td>';
-        echo '<td>' . htmlspecialchars($row['Pass_ID']) . '</td>';
-        echo '</tr>';
+        <?php
+        echo '</tbody>';
+        echo '</table>';
+    } else {
+        echo '<p class="text-center">ไม่มีข้อมูลในฐานข้อมูล</p>';
     }
 
-    echo '</tbody>';
-    echo '</table>';
-} else {
-    echo '<p class="text-center">ไม่มีข้อมูลในฐานข้อมูล</p>';
-}
-
-// ปิดการเชื่อมต่อฐานข้อมูล
-$conn->close();
+    // ปิดการเชื่อมต่อฐานข้อมูล
+    $conn->close();

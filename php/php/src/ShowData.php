@@ -3,7 +3,7 @@
 require 'dbconnect.php';
 
 $inputbox = $_POST["type"];
-$sql = "SELECT * FROM รหัสต่างๆ WHERE Type = '$inputbox'";
+$sql = "SELECT * FROM รหัสต่างๆ WHERE Type LIKE '%$inputbox%' ";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

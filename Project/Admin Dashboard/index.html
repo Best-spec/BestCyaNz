@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Procoder09 Dashboard</title>
+    <link
+      rel="shortcut icon"
+      href="images/procoder-logo.png"
+      type="image/x-icon"
+    />
+    <!-- BOX ICONS LINK  -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- CHART JS SCRIPT CDN LINK   -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  </head>
+  <body>
+    <!-- HEADER  -->
+    <div class="header">
+      <!-- LOGO  -->
+      <div class="logo">
+        <img src="images/cropped-procode1-1.png" class="lg-logo" />
+        <img src="images/procoder-logo.png" class="sm-logo" />
+      </div>
+      <!-- SEARCH INPUT  -->
+      <div class="search-input">
+        <button class="toggle-menu">
+          <i class="bx bx-menu"></i>
+        </button>
+        <div class="input-box">
+          <button><i class="bx bx-search"></i></button>
+          <input type="text" placeholder="Search" />
+        </div>
+      </div>
+      <!-- SMART ICONS  -->
+      <div class="smart-icons">
+        <span class="cart">
+          <i class="bx bx-cart-alt"></i>
+          <span class="cart-badge">5</span>
+        </span>
+        <span class="notification">
+          <i class="bx bx-bell"></i>
+          <span class="notification-badge"></span>
+        </span>
+        <div class="profile">
+          <img src="images/profile.jpg" alt="" />
+        </div>
+        <!-- <span><i class="bx bx-cog"></i></span> -->
+      </div>
+    </div>
+    <!-- SIDEBAR  -->
+    <div class="sidebar">
+      <div class="align-element">
+        <ul>
+          <li class="active">
+            <span><i class="bx bx-home"></i></span>
+            <span>Dashboard</span>
+          </li>
+          <li>
+            <span><i class="bx bx-calendar-week"></i></span>
+            <span>UI Elements</span>
+          </li>
+          <li>
+            <span><i class="bx bx-border-radius"></i></span>
+            <span>Advanced UI</span>
+          </li>
+          <li>
+            <span><i class="bx bx-lock-alt"></i></span>
+            <span>Authentication</span>
+          </li>
+          <li>
+            <span><i class="bx bx-customize"></i></span>
+            <span>Apps</span>
+          </li>
+          <li>
+            <span><i class="bx bx-file-find"></i></span>
+            <span>Pages</span>
+          </li>
+          <li>
+            <span><i class="bx bx-copy-alt"></i></span>
+            <span>Nested Menu</span>
+          </li>
+          <li>
+            <span><i class="bx bx-error"></i></span>
+            <span>Error</span>
+          </li>
+          <li>
+            <span><i class="bx bx-calendar-week"></i></span>
+            <span>Forms</span>
+          </li>
+          <li>
+            <span><i class="bx bx-dialpad-alt"></i></span>
+            <span>Utilities</span>
+          </li>
+          <li>
+            <span><i class="bx bx-baguette"></i></span>
+            <span>Widgets</span>
+          </li>
+          <li>
+            <span><i class="bx bx-map-alt"></i></span>
+            <span>Maps</span>
+          </li>
+          <li>
+            <span><i class="bx bx-cube"></i></span>
+            <span>Icons</span>
+          </li>
+          <li>
+            <span><i class="bx bx-bar-chart-alt-2"></i></span>
+            <span>Charts</span>
+          </li>
+          <li>
+            <span><i class="bx bx-table"></i></span>
+            <span>Tables</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- MAIN CONTAINER  -->
+    <div class="main-container">
+      <!-- TITLE  -->
+      <div class="title">
+        <p>
+          <span>Dashboard</span>
+          <i class="bx bx-right-arrow-alt"></i>
+          Sales
+        </p>
+        <h3>Sales Dashboard</h3>
+      </div>
+      <!-- CARDS  -->
+      <div class="cards">
+        <!-- CARD 1 -->
+        <div class="card card-1">
+          <div class="card-text">
+            <span>Total Products</span>
+            <h4 style="background: transparent">99,809</h4>
+            <p>
+              Increased By <span>2.56% <i class="bx bx-up-arrow-alt"></i></span>
+            </p>
+          </div>
+          <div class="card-icon">
+            <span><i class="bx bx-cart-alt"></i></span>
+          </div>
+        </div>
+        <!-- CARD 2 -->
+        <div class="card card-2">
+          <div class="card-text">
+            <span>Total Users</span>
+            <h4 style="background: transparent">40,167</h4>
+            <p>
+              Increased By <span>0.34% <i class="bx bx-up-arrow-alt"></i></span>
+            </p>
+          </div>
+          <div class="card-icon">
+            <span><i class="bx bx-group"></i></span>
+          </div>
+        </div>
+        <!-- CARD 3 -->
+        <div class="card card-3">
+          <div class="card-text">
+            <span>Total Revenue</span>
+            <h4 style="background: transparent">53,200</h4>
+            <p>
+              Increased By <span>7.66% <i class="bx bx-up-arrow-alt"></i></span>
+            </p>
+          </div>
+          <div class="card-icon">
+            <span><i class="bx bx-dollar"></i></span>
+          </div>
+        </div>
+        <!-- CARD 4 -->
+        <div class="card card-4">
+          <div class="card-text">
+            <span>Total Sales</span>
+            <h4 style="background: transparent">262,040</h4>
+            <p>
+              Increased By
+              <span>0.74% <i class="bx bx-down-arrow-alt"></i></span>
+            </p>
+          </div>
+          <div class="card-icon">
+            <span><i class="bx bx-cart-alt"></i></span>
+          </div>
+        </div>
+      </div>
+      <!-- CHARTS  -->
+      <div class="charts">
+        <!-- CHART 1 -->
+        <div class="chart">
+          <div class="chart-top">
+            <h4>Sales Overview</h4>
+            <select>
+              <option selected>Sort By</option>
+              <option>This Week</option>
+              <option>Last Week</option>
+              <option>This Month</option>
+            </select>
+          </div>
+          <div class="chart-bottom">
+            <canvas id="barChart" height="100%" width="100%"></canvas>
+          </div>
+        </div>
+        <!-- CHART 2 -->
+        <div class="chart">
+          <div class="chart-top">
+            <h4>Order Statistics</h4>
+            <span> <i class="bx bx-dots-vertical-rounded"></i></span>
+          </div>
+          <div class="chart-bottom">
+            <canvas id="douChart" height="100%" width="100%"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- BACKDROP FILTER  -->
+    <div class="backdrop-filter"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

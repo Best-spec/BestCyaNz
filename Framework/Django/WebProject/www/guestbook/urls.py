@@ -1,11 +1,10 @@
 from django.urls import path
-from . import views
+from .views import *
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('add/', views.add, name='add'),
-    path('add/addrecord/', views.addrecord, name='addrecord'),
-    path('delete/<int:id>', views.delete, name='delete'),
-    path('update/<int:id>', views.update, name='update'),
-    path('update/updaterecord/<int:id>', views.updaterecord, name='updaterecord'),
+    path('', home, name='home'),
+    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
+    path('signup/', signup, name='signup'),
 ]

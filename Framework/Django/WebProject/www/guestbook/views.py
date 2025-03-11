@@ -1,47 +1,30 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
-from django.template import loader
-from .models import Members
-from django.urls import reverse
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.contrib.auth import login
+from django.shortcuts import redirect
+from .forms import UserProfileForm
 
 # Create your views here.
-def index(request):
-    mymembers = Members.objects.all().values()
-    template = loader.get_template('guestbook/index.html')
-    context = {
-        'mymembers': mymembers
-    }
-    return HttpResponse(template.render(context, request))
+@login_required(login_url='login')
+def home(request):
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, instance=request.user)  # ใช้ instance เป็นผู้ใช้ที่ล็อกอินอยู่
+        if form.is_valid():
+            form.save()  # บันทึกการเปลี่ยนแปลง
+            return redirect('home')  # เปลี่ยนเส้นทางไปหน้า Home หลังจากบันทึกข้อมูล
+    else:
+        form = UserProfileForm(instance=request.user)  # แสดงฟอร์มพร้อมข้อมูลของผู้ใช้ปัจจุบัน
 
-def add(request):
-    template = loader.get_template('guestbook/Add.html')
-    return HttpResponse(template.render({}, request))
+    return render(request, 'home.html', {'form': form})
 
-def addrecord(request):
-    firstname = request.POST['first']
-    lastname = request.POST['last']
-    member = Members(firstname = firstname, lastname = lastname)
-    member.save()
-    return HttpResponseRedirect(reverse('index'))
-
-def delete(request, id):
-    member = Members.objects.get(id = id)
-    member.delete()
-    return HttpResponseRedirect(reverse('index'))
-
-def update(request, id):
-    mymember = Members.objects.get(id = id)
-    template = loader.get_template('guestbook/update.html')
-    context = {
-        'mymember': mymember
-    }
-    return HttpResponse(template.render(context, request))
-
-def updaterecord(request, id):
-    firstname = request.POST['first']
-    lastname = request.POST['last']
-    member = Members.objects.get(id = id)
-    member.firstname = firstname
-    member.lastname = lastname
-    member.save()
-    return HttpResponseRedirect(reverse('index'))
+def signup(request):
+    if request.method == 'POST':
+        first_name = request.POST.get('first_name')
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = User.objects.create_user(username=username, password=password, first_name=first_name)
+        user.save()
+        login(request, user)
+        return redirect('home')
+    return render(request, 'signup.html')

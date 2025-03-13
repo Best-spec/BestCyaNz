@@ -1,0 +1,18 @@
+camera 
+Focal Length 50mm
+
+มุมที่ 1  
+Location 0,-13,1.75
+Rotation 90, 0, 0
+
+มุมที่ 2
+Location -0.15, 0, 15
+Rotation 0, 0, 0
+
+มุมที่ 2
+Location 10, -8.5, 6
+Rotation 68, 0, 500
+
+https://sketchfab.com/3d-models/isometric-room-703adb8138314218a64142dd73d3c06f
+https://sketchfab.com/3d-models/isometric-ramen-shop-low-poly-a73f9452f43b46fbbe436a308d961f60
+https://www.behance.net/gallery/107315669/Isometric-Shop-Illustrations/modules/615302809

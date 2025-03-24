@@ -1,44 +1,110 @@
-let p = "";
-function showNumber(text) {
-    p += text;
-    document.getElementById("row2").innerHTML = p;
-}
 
-const images = document.querySelectorAll('.img-border img');
+
+let input_bar = document.getElementById("input_num");
+let history = document.getElementById("history");
+let answer = document.getElementById("answer");
+
+// Get all the buttons
+const buttons = document.querySelectorAll('.img-border');
 
 // Create object mapping button IDs to symbol values from alt attributes
-const buttonMap = {
-    btn1: images[0].alt,
-    btn2: images[1].alt, 
-    btn3: images[2].alt,
-    btn4: images[3].alt,
-    btn5: images[4].alt,
-    btn6: images[5].alt,
-    btn7: images[6].alt,
-    btn8: images[7].alt,
-    btn9: images[8].alt,
-    btn10: images[9].alt,
-    btn11: images[10].alt,
-    btn12: images[11].alt,
-    btn13: images[12].alt,
-    btn14: images[13].alt,
-    btn15: images[14].alt,
-    btn16: images[15].alt,
-    btn17: images[16].alt,
-    btn18: images[17].alt,
-    btn19: images[18].alt
-};
+const buttonMap = {};
+buttons.forEach(button => {
+    buttonMap[button.id] = button.querySelector('img').alt;
+});
 
-Object.entries(buttonMap).forEach([btnId, symbol]) => {
-    document.getElementById(btnId).onclick = function() {
-        if (btnId === "btn16") {
-            p = "";
-            document.getElementById("row2").innerHTML = "";
-            document.getElementById("row1").innerHTML = "";
-        }
-        else if {
-         showNumber(symbol);
-        }
-    
-    }}
+// Add event listeners to each button
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        const buttonId = button.id;
+        const buttonValue = buttonMap[buttonId];
 
+        // Add the "active" class to the clicked button
+        button.classList.add('active');
+
+        // Remove the "active" class after a short delay (e.g., 100ms)
+        setTimeout(() => {
+            button.classList.remove('active');
+        }, 100);
+
+        if (buttonId === 'btn16') { // Clear button
+            clearInput();
+            input_bar.value = "0";
+        } 
+        else if (buttonId === 'btn19') { // Equals button
+            calculate();
+        } 
+        else if (buttonId === 'mode') { 
+            toggleMode();
+        }
+        else if (buttonId === 'btn2') {
+            clickNumber("%");
+        }
+        else if (buttonId === 'btn3') {
+            clickNumber("/");
+        }
+        else if (buttonId === 'btn4') {
+            clickNumber("*");
+        }
+        else if (buttonId === 'btn8') {
+            clickNumber("-");
+        }
+        else if (buttonId === 'btn12') {
+            clickNumber("+");
+        }
+        else if (buttonId === 'btn18') {
+            clickNumber(".");
+        }
+        else {
+            if (input_bar.value === "0") {
+                clearInput();
+                clickNumber(buttonValue);
+            } else {
+                clickNumber(buttonValue);
+            }
+        }
+    });
+});
+
+function clickNumber(text) {
+    input_bar.value += text;
+    console.log(input_bar.value);
+}
+
+function clearInput() {
+    input_bar.value = "";
+}
+
+function calculate() {
+    try {
+        history.innerHTML = input_bar.value;
+        answer.innerHTML = '= ' + eval(input_bar.value);
+        input_bar.value = eval(input_bar.value);
+    } catch (error) {
+        input_bar.value = "Error";
+    }
+}
+
+function deleteLast() {
+    input_bar.value = input_bar.value.slice(0, -1);
+}
+
+function toggleMode() {
+    let islight = document.body.classList.toggle("light-mode");
+
+    // เปลี่ยนไอคอนของปุ่ม
+        buttons.forEach(button => {
+            button.className = islight ? "img-border light-mode" : "img-border dark-mode";
+        }
+    );
+
+    // บันทึกโหมดใน Local Storage
+    // localStorage.setItem("theme", isDark ? "dark" : "light");
+}
+
+// เช็คค่า Theme ที่เคยเลือกไว้เมื่อเปิดหน้าเว็บ
+// window.onload = function () {
+//     if (localStorage.getItem("theme") === "dark") {
+//         document.body.classList.add("dark-mode");
+//     }
+// };

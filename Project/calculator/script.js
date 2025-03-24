@@ -1,5 +1,3 @@
-
-
 let input_bar = document.getElementById("input_num");
 let history = document.getElementById("history");
 let answer = document.getElementById("answer");
@@ -78,8 +76,8 @@ function clearInput() {
 function calculate() {
     try {
         history.innerHTML = input_bar.value;
-        answer.innerHTML = '= ' + eval(input_bar.value);
-        input_bar.value = eval(input_bar.value);
+        answer.innerHTML = '= ' + math.evaluate(input_bar.value);
+        input_bar.value = math.evaluate(input_bar.value);
     } catch (error) {
         input_bar.value = "Error";
     }
@@ -99,12 +97,12 @@ function toggleMode() {
     );
 
     // บันทึกโหมดใน Local Storage
-    // localStorage.setItem("theme", isDark ? "dark" : "light");
+    localStorage.setItem("theme", islight ? "light" : "dark");
 }
 
 // เช็คค่า Theme ที่เคยเลือกไว้เมื่อเปิดหน้าเว็บ
-// window.onload = function () {
-//     if (localStorage.getItem("theme") === "dark") {
-//         document.body.classList.add("dark-mode");
-//     }
-// };
+window.onload = function () {
+    if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light-mode");
+    }
+};

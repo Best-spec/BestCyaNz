@@ -1,0 +1,11 @@
+{
+    "name" : "calculator",
+    "version" : "1.0.0",
+    "description" : "A simple calculator",
+    "manifest_version" : 3,
+    "author" : "BestCyaNz",
+    "action" : {
+        "default_popup" : "index.html",
+        "default_title" : "Calculator"
+    }
+}

@@ -1,0 +1,38 @@
+//Online Javascript Editor for free
+//Write, Edit and Run your Javascript code using JS Online Compiler
+let x, y, z;
+
+x = 1;
+y = 2;
+z = 3;
+
+// creating array
+const array = [x, y, z];
+
+// function build
+function loop(amout) {
+  for (let i = 0; i < amout; i++) {
+    console.log(array[i]);
+  }
+}
+
+// function output
+let la = loop(array.length);
+
+// class build
+class pet {
+  constructor(name, type) {
+    this.name = name;
+    this.type = type;
+  }
+  walk(bool) {
+    return bool;
+  }
+  info() {
+    return `${this.name} is a ${this.type}`;
+  }
+}
+// class output
+const dog = new pet("toto", "sibian");
+
+console.log(dog.name, dog.type, dog.walk("yes"));

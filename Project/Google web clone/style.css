@@ -1,0 +1,248 @@
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #202124;
+}
+.nav-top {
+  display: flex;
+  justify-content: flex-end; /* จัดให้อยู่กึ่งกลางในแนวนอน */
+  align-items: center; /* จัดให้อยู่กึ่งกลางในแนวตั้ง */
+  /* border: 1px dashed red; */
+  padding: 6px 9px 6px 6px;
+  height: 48px;
+}
+
+.nav-top ul {
+  /* border: 1px dashed red; */
+  display: flex;
+  justify-content: center; /* จัดเนื้อหาใน ul ให้กึ่งกลางแนวนอน */
+  align-items: center; /* จัดเนื้อหาใน ul ให้กึ่งกลางแนวตั้ง */
+  list-style: none; /* ลบจุดหน้ารายการ */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-top ul a {
+  font: 13px/24px Roboto, Arial, sans-serif;
+  color: white;
+  text-decoration: none;
+}
+
+.gb-a {
+  padding: 0 15px 0 0;
+}
+
+.gb-a:hover {
+  text-decoration: underline;
+  /* color: red; */
+}
+
+.gb-b {
+  padding: 4px 4px 4px 0px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center; /* จัดเนื้อหาใน ul ให้กึ่งกลางแนวนอน */
+  align-items: center;
+}
+
+.gb-b:hover,
+.gb-c:hover {
+  border-radius: 50%;
+  background-color: #bfbfbf;
+}
+
+.gb-c {
+  padding: 4px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center; /* จัดเนื้อหาใน ul ให้กึ่งกลางแนวนอน */
+  align-items: center;
+}
+
+.logo-google {
+  height: 290px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 19px 20px;
+}
+
+.field-input:hover {
+  background-color: #bfbfbfb6;
+}
+
+.field-input {
+  width: 582px;
+  height: 44px;
+  border-radius: 24px;
+  border: 1px solid transparent;
+  background-color: #4d5156;
+  display: flex;
+  align-items: center;
+  /* border: 1px solid red; */
+}
+
+.s-icon {
+  padding: 0 13px 0 14px;
+  fill: white;
+  width: 20px;
+  height: 20px;
+}
+
+.input-s {
+  width: 403px;
+  height: 48px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  outline: none;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  /* border: 1px solid red; */
+}
+
+.yAnw3c {
+  height: 24px;
+  width: 24px;
+  padding: 0 8px;
+}
+
+.goxjub {
+  height: 24px;
+  width: 24px;
+  padding: 0 8px;
+}
+
+.Gdd5U {
+  height: 24px;
+  width: 24px;
+  padding: 0 8px;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  /* align-content: center; */
+  padding: 18px 0 0;
+  /* height: 58px;
+  width: 584px; */
+  font-size: 14px;
+}
+
+.btn-g:hover,
+.btn-d:hover {
+  border: 1px solid #bfbfbf;
+}
+
+.btn-g {
+  margin: 11px 4px;
+  padding: 0 16px;
+  border-radius: 4px;
+  background-color: #303134;
+  border: 1px solid #303134;
+  color: #e8eaed;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  height: 36px;
+  line-height: 27px;
+}
+
+.btn-d {
+  margin: 11px 4px;
+  padding: 0 16px;
+  border-radius: 4px;
+  background-color: #303134;
+  border: 1px solid #303134;
+  color: #e8eaed;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  height: 36px;
+  line-height: 27px;
+}
+
+.last-btn {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  color: #bfbfbf;
+  height: 305px;
+  font-size: small;
+  font-family: Arial, sans-serif;
+}
+
+.last-btn a {
+  padding: 0 6px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  color: #99c3ff;
+  text-decoration: none;
+  font-size: small;
+  font-family: Arial, sans-serif;
+}
+
+.last-btn a:hover {
+  text-decoration: underline;
+}
+
+.foot-1 {
+  padding: 15px 30px;
+  display: flex;
+  background-color: #171717;
+  font-size: 15px;
+  color: #e8e8e8;
+  border-bottom: 1px solid #313335;
+  font-family: Arial, sans-serif;
+}
+
+.foot-2 {
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background-color: #171717;
+  font-family: Arial, sans-serif;
+}
+
+.foot-box1,
+.foot-box2 {
+  display: flex;
+  width: 50%;
+  padding: 15px;
+  margin: 0;
+  font-size: 14px;
+}
+
+.foot-box1 {
+  justify-content: flex-start;
+}
+
+.foot-box2 {
+  justify-content: flex-end;
+}
+
+.foot-2 ul a {
+  margin: 0;
+  padding: 15px;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  color: #e8e8e8;
+  text-decoration: none;
+}
+
+.foot-2 ul a:hover {
+  text-decoration: underline;
+}
+
+.foot-2 ul li {
+  list-style: none;
+}

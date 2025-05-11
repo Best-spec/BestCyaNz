@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body>
+<nav class="navbar navbar-expand-md bg-dark sticky-top border-bottom" data-bs-theme="dark">
+<div class="container">
+    <div class="w-100">
+      <ul class="justify-content-end navbar-nav gap-3">
+        {% if user.is_authenticated %}
+        <li class="nav-item"><a class="nav-link" href="#">{{ user.first_name }}</a></li>
+        <form action="{% url 'logout' %}" method="post">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
+        <a href="{% url 'admin:index' %}" class="btn btn-danger">Admin Panel</a>
+        {% else %}
+        <li class="nav-item"><a class="btn btn-primary" href="#">Register</a></li>
+        <li class="nav-item"><a class="btn btn-primary" href="{% url 'login' %}">Login</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</div>
+</nav>
+
+<main>
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary">
+  <div class="col-md-6 p-lg-5 mx-auto my-5">
+    {% if user.is_authenticated %}
+      <h1 class="display-3 fw-bold">Your Name is {{user.first_name}}</h1>
+      <h3 class="fw-normal text-muted mb-3">Login successfully</h3>
+    {% if user.is_staff %}
+      <h3 class="fw-normal text-muted mb-3">You are a staff member</h3> 
+    {% endif %}
+    {% if user.is_superuser %}
+      <h3 class="fw-normal text-muted mb-3">You are a superuser </h3>
+    {% endif %}
+
+    <form method="post">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="is_staff" class="form-label">Is Staff</label>
+        <input type="checkbox" name="is_staff" id="is_staff" {% if user.is_staff %} checked {% endif %}>
+        <label for="is_superuser" class="form-label">Is Superuser</label>
+        <input type="checkbox" name="is_superuser" id="is_superuser" {% if user.is_superuser %} checked {% endif %}>
+      </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+
+    <br>
+
+    <form  action="{% url 'logout' %}" method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">LOGOUT</button>
+    </form>
+    {% else %}
+    <h1 class="display-3 fw-bold">You are not logged in.</h1>
+    <a class="btn btn-primary" href="{% url 'login' %}">Login</a></li>
+    {% endif %}
+  </div>
+
+
+  <div class="product-device shadow-sm d-none d-md-block"></div>
+  <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+</div>
+</main>
+
+<script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+{% endblock %}

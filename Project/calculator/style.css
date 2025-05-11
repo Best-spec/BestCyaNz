@@ -1,0 +1,124 @@
+:root {
+    --primary-bg: #212327;
+    --secondary-bg: #27292E;
+    --button-bg: #323439;
+    --text-color: aliceblue;
+}
+
+/* ===============================
+   Global Styles
+   =============================== */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+
+    /* layout */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.border-parent {
+    /* colors */
+    background-color: var(--primary-bg);
+
+    /* layout */
+    width: 390px;
+    height: 700px;
+}
+
+.output-field {
+    /* box model */
+    padding-right: 5vh;
+    height: 180px;
+
+    /* Typography */
+    text-align: end;
+}
+
+.output-field h3{
+    /* Typography */
+    color: var(--text-color);
+    font-size: 2rem;
+}
+
+.output-field input {
+
+    /* box model */
+    height: 20%;
+    width: 80%;
+    background-color: var(--primary-bg);
+    border: none;
+    
+    /* Typography */
+    font-size: 2rem;
+    color: var(--text-color);
+    text-align: end;
+}
+
+.input-field {
+    height: 62%;
+    background-color: var(--secondary-bg);
+}
+
+.table-number {
+    /* layout */
+    padding: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.table-2-main {
+    display: flex;
+}
+
+
+.table-2 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 36px;
+    margin-right: 0;
+} 
+
+
+.table-3 {
+    display: flex;
+}
+
+/* ===============================
+   Button Styles
+   =============================== */
+.table-3 .img-border {
+    height: auto;
+    border-radius: 50px; 
+}
+
+/* mode */
+.light-mode {
+    --primary-bg: #f5f5f5;
+    --secondary-bg: #e5e5e5;
+    --button-bg: #d5d5d5;
+    --text-color: #cf1b1b;
+}
+
+.img-border {
+    height: 50px;
+    width: 50px;
+    border: none;
+    border-radius: 50%;
+    text-align: center;
+    background-color: var(--button-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-border:hover {
+    background-color: transparent;
+    cursor: pointer;
+}
+
